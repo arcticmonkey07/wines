@@ -1,4 +1,13 @@
+let rerenderEntireTree = () => {
+  console.log('Store change!');
+}
+
 let store = {
+  posts: [
+    {id: 1, message: 'This great wine!', likesCount: 3},
+    {id: 2, message: 'Sparkly, tart, fruty!', likesCount: 4}
+  ],
+  newPostText: 'Напишите отзыв',
   wines: [
       {
         id: 1,
@@ -34,7 +43,27 @@ let store = {
         description: 'Простое, легкое.'
     },
   ]
+}
 
+export let addPost = () => {
+  let newPost = {
+    id: 5,
+    message: store.newPostText,
+    likesCount: 2,
+  };
+
+  store.posts.push(newPost);
+  store.newPostText = '';
+  rerenderEntireTree();
+}
+
+export const updateNewPostText = (newText) => {
+  store.newPostText = newText;
+  rerenderEntireTree();
+}
+
+export const subscribe = (observer) => {
+  rerenderEntireTree = observer;
 }
 
 export default store;
