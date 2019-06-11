@@ -1,25 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import WineContainer from "./components/Wine/WineContainer.jsx";
+import {Route} from "react-router-dom";
+import Header from "./components/Header/Header.jsx";
+import Menu from "./components/Menu/Menu.jsx";
+import ChampagneContainer from "./components/Champagne/ChampagneContainer.jsx";
 
-function App() {
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <Header />
+        <Menu />
+        <Route path='/wines' render={ () => <WineContainer store={props.store} />} />
+        <Route path='/champagne' render={ () => <ChampagneContainer />} />
+      </div>
   );
 }
 

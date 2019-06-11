@@ -1,0 +1,30 @@
+.menu__list {
+  display: flex;
+  height: 50px;
+  background-color: #002855;
+  list-style: none;
+}
+
+.menu__item {
+  background-color: #002855;
+}
+
+.menu__item:hover {
+  background-color: #021c55;
+}
+
+.menu__link {
+  display: block;
+  padding: 14px 17px 15px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+}
+
+.menu__link.active {
+  color: #d2d23f;
+}
+
+.menu__link:hover {
+  color: #d2d23f;
+}

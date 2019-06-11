@@ -1,0 +1,78 @@
+.header-top {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.header-top__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header-top__logo {
+  margin-right: 50px;
+}
+
+.header-top__input {
+  width: 590px;
+  height: 50px;
+  margin-right: 10px;
+  padding-left: 11px;
+  padding-right: 40px;
+  font-size: 16px;
+  color: #464445;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  letter-spacing: .025em;
+}
+
+.header-top__submit {
+  position: relative;
+  top: 2px;
+  height: 50px;
+  width: 100px;
+  margin-right: 20px;
+  padding: 0;
+  font-size: 16px;
+  line-height: 50px;
+  color: #b3b3b3;
+  background-color: #f2f2f2;
+  border: 2px solid #e6e6e6;
+  border-radius: 3px;
+  letter-spacing: .025em;
+  cursor: pointer;
+}
+
+.header-top__login {
+  margin-right: 20px;
+  color: #464445;
+  font-size: 13px;
+}
+
+.header-top__login-svg {
+  position: relative;
+  top: 5px;
+  margin-right: 10px;
+}
+
+.header-top__favorites {
+  margin-right: 20px;
+}
+
+.header-top__favorites-svg {
+  position: relative;
+  top: 9px;
+  margin-right: 10px;
+}
+
+.header-top__basket {
+  margin-right: 20px;
+  color: #464445;
+  font-size: 13px;
+}
+
+.header-top__basket-svg {
+  position: relative;
+  top: 9px;
+  margin-right: 10px;
+}

@@ -1,0 +1,30 @@
+.wine {
+  display: flex;
+  width: 310px;
+  margin-bottom: 20px;
+  padding: 7px;
+}
+
+.wine:hover {
+  border-radius: 20px;
+  box-shadow: 0 0 15px 0 #000;
+}
+
+.wine__img {
+  margin: 0 10px 10px 0;
+  width: 120px;
+  height: 400px;
+}
+
+.wine__header {
+  margin-bottom: 10px;
+  width: 180px;
+}
+
+.wine__country, .wine__grape, .wine__color, .wine__sugar, .wine__price, .wine__sweetness {
+  display: block;
+}
+
+.wine__description, .wine__grape, .wine__country{
+  width: 180px;
+}
