@@ -2,20 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import store, {addPost, subscribe, updateNewPostText} from './redux/store.js';
+import store from './redux/store.js';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
 
-export let rerenderEntireTree = () => {
+export let rerenderEntireTree = (state) => {
   ReactDOM.render(
       <BrowserRouter>
-        <App store={store} addPost={addPost} updateNewPostText={updateNewPostText} />
+        <App state={state} addPost={store.addPost.bind(store)} updateNewPostText={store.updateNewPostText.bind(store)} />
       </BrowserRouter>, document.getElementById('root'));
 }
 
-rerenderEntireTree();
+rerenderEntireTree(store.getState());
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);
 
 
 

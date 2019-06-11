@@ -12,9 +12,9 @@ const App = (props) => {
       <div>
         <Header />
         <Menu />
-        <Route path='/wines' render={ () => <WineContainer wines={props.store.wines} />} />
+        <Route path='/wines' render={ () => <WineContainer wines={props.state.wines} />} />
         <Route path='/champagne' render={ () => <ChampagneContainer />} />
-        <Route path='/posts' render={ () => <Posts store={props.store} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />} />
+        <Route path='/posts' render={ () => <Posts store={props.state} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />} />
       </div>
   );
 }
