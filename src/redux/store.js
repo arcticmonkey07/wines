@@ -44,25 +44,30 @@ let store = {
   getState() {
     return this._state;
   },
+
   _callSubscriber() {
     console.log('Store change!');
   },
-  addPost() {
-    let newPost = {
-      id: 5,
-      message: this._state.newPostText,
-      likesCount: 2,
-    };
-    this._state.posts.push(newPost);
-    this._state.newPostText = '';
-    this._callSubscriber(this._state);
-  },
-  updateNewPostText(newText) {
-    this._state.newPostText = newText;
-    this._callSubscriber(this._state);
-  },
+
   subscribe(observer) {
     this._callSubscriber = observer;
+  },
+
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      let newPost = {
+        id: 5,
+        message: this._state.newPostText,
+        likesCount: 2,
+      };
+      this._state.posts.push(newPost);
+      this._state.newPostText = '';
+      this._callSubscriber(this._state);
+
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._state.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    }
   }
 }
 

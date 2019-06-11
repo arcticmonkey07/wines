@@ -14,7 +14,7 @@ const App = (props) => {
         <Menu />
         <Route path='/wines' render={ () => <WineContainer wines={props.state.wines} />} />
         <Route path='/champagne' render={ () => <ChampagneContainer />} />
-        <Route path='/posts' render={ () => <Posts store={props.state} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />} />
+        <Route path='/posts' render={ () => <Posts store={props.state} dispatch={props.dispatch} />} />
       </div>
   );
 }
