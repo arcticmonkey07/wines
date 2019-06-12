@@ -13,7 +13,7 @@ const App = (props) => {
         <Header />
         <Menu />
         <Route path='/wines' render={ () => <WineContainer wines={props.state.wines} />} />
-        <Route path='/champagne' render={ () => <ChampagneContainer />} />
+        <Route path='/champagne' render={ () => <ChampagneContainer store={props.state} dispatch={props.dispatch} />} />
         <Route path='/posts' render={ () => <Posts store={props.state} dispatch={props.dispatch} />} />
       </div>
   );
