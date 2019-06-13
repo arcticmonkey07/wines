@@ -1,19 +1,15 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_DIALOG = 'ADD-DIALOG';
-const UPDATE_NEW_DIALOG_TEXT = 'UPDATE-NEW-DIALOG-TEXT';
+import postsReducer from "./posts-reducer.js";
 
 let store = {
   _state: {
-    dialogs: {
-      dialogPosts: [],
-      newDialogText: 'Напишите'
+    postsPage: {
+      posts: [
+        {id: 1, message: 'This great wine!', likesCount: 3},
+        {id: 2, message: 'Sparkly, tart, fruty!', likesCount: 4}
+      ],
+      newPostText: 'Напишите отзыв',
     },
-    posts: [
-      {id: 1, message: 'This great wine!', likesCount: 3},
-      {id: 2, message: 'Sparkly, tart, fruty!', likesCount: 4}
-    ],
-    newPostText: 'Напишите отзыв',
+
     wines: [
       {
         id: 1,
@@ -63,40 +59,12 @@ let store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 5,
-        message: this._state.newPostText,
-        likesCount: 2,
-      };
-      this._state.posts.push(newPost);
-      this._state.newPostText = '';
-      this._callSubscriber(this._state);
+    this._state.postsPage = postsReducer(this._state.postsPage, action);
 
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.newPostText = action.newText;
-      this._callSubscriber(this._state);
-
-    } else if (action.type === ADD_DIALOG) {
-      let newPost = {
-        id: 5,
-        message: this._state.dialogs.newDialogText,
-      };
-      this._state.dialogs.dialogPosts.push(newPost);
-      this._state.dialogs.newDialogText = '';
-      this._callSubscriber(this._state);
-
-    } else if (action.type === UPDATE_NEW_DIALOG_TEXT) {
-      this._state.dialogs.newDialogText = action.newText;
-      this._callSubscriber(this._state);
-    }
+    this._callSubscriber(this._state);
   }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
-export const addDialogActionCreator = () => ({type: ADD_DIALOG})
-export const updateNewDialogTextActionCreator = (text) => ({type: UPDATE_NEW_DIALOG_TEXT, newText: text})
 
 export default store;
 window.store = store;
