@@ -5,16 +5,16 @@ import {Route} from "react-router-dom";
 import Header from "./components/Header/Header.jsx";
 import Menu from "./components/Menu/Menu.jsx";
 import ChampagneContainer from "./components/Champagne/ChampagneContainer.jsx";
-import Posts from "./components/Posts/Posts.jsx";
+import PostsContainer from "./components/Posts/PostsContainer.jsx";
 
 const App = (props) => {
   return (
       <div>
         <Header />
         <Menu />
-        <Route path='/wines' render={ () => <WineContainer wines={props.state.wines} />} />
-        <Route path='/champagne' render={ () => <ChampagneContainer store={props.state} dispatch={props.dispatch} />} />
-        <Route path='/posts' render={ () => <Posts store={props.state} dispatch={props.dispatch} />} />
+        <Route path='/wines' render={ () => <WineContainer />} />
+        <Route path='/champagne' render={ () => <ChampagneContainer />} />
+        <Route path='/posts' render={ () => <PostsContainer />} />
       </div>
   );
 }

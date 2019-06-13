@@ -1,24 +1,22 @@
 import React from 'react';
 import './Posts.css';
 import Post from "./Post/Post.jsx";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../redux/posts-reducer.js";
 
 const Posts = (props) => {
-  let postsElements = props.store.postsPage.posts.map( p => <Post message={p.message} likesCount={p.likesCount} key={p.id} /> )
+  let postsElements = props.posts.map( p => <Post message={p.message} likesCount={p.likesCount} key={p.id} /> )
 
   let addPost = () => {
-    props.dispatch(addPostActionCreator());
+    props.addPost();
   }
 
   let onPostChange = (e) => {
     let text = e.target.value;
-    let action = updateNewPostTextActionCreator(text);
-    props.dispatch(action);
+    props.updateNewPostText(text);
   }
 
   return (
       <section>
-        <textarea className="posts__textarea" onChange={onPostChange} value={props.store.postsPage.newPostText} />
+        <textarea className="posts__textarea" onChange={onPostChange} value={props.newPostText} />
         <button className="posts__button" onClick={ addPost }>Отправить</button>
         { postsElements }
       </section>
