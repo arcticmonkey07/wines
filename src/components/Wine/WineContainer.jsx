@@ -1,16 +1,12 @@
-import React from 'react';
-import './WineContainer.css';
-import Wine from "./Wine.jsx";
+import {connect} from "react-redux";
+import Wines from "./Wines.jsx";
 
-const WineContainer = (props) => {
-
-  let winesElements = props.store.winePage.wines.map( w => <Wine id={w.id} image={w.image} name={w.name} country={w.country} grape={w.grape} sugar={w.sugar} color={w.color} price={w.price} description={w.description} key={w.id} />);
-
-  return (
-      <div className='container'>
-        { winesElements }
-      </div>
-  )
+let mapStateToProps = (state) => {
+  return {
+    winePage: state.winePage
+  }
 }
+
+const WineContainer = connect(mapStateToProps)(Wines);
 
 export default WineContainer;
