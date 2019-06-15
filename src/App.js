@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import WineContainer from "./components/Wine/WineContainer.jsx";
 import {Route} from "react-router-dom";
 import Header from "./components/Header/Header.jsx";
 import Menu from "./components/Menu/Menu.jsx";
+import WineContainer from "./components/Wine/WineContainer.jsx";
 import ChampagneContainer from "./components/Champagne/ChampagneContainer.jsx";
 import PostsContainer from "./components/Posts/PostsContainer.jsx";
 

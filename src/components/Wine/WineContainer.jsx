@@ -1,12 +1,26 @@
+import React from 'react';
 import {connect} from "react-redux";
 import Wines from "./Wines.jsx";
+import {favoriteAC, setWinesAC, unfavoriteAC} from "../../redux/wine-reducer.js";
 
 let mapStateToProps = (state) => {
   return {
-    winePage: state.winePage
+    wines: state.winePage.wines
   }
 }
 
-const WineContainer = connect(mapStateToProps)(Wines);
+let mapDispatchToProps = (dispatch) => {
+  return {
+    favorite: (userId) => {
+      dispatch(favoriteAC(userId));
+    },
+    unfavorite: (userId) => {
+      dispatch(unfavoriteAC(userId));
+    },
+    setWines: (userId) => {
+      dispatch(setWinesAC(userId));
+    }
+  }
+}
 
-export default WineContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(Wines);

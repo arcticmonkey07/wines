@@ -1,44 +1,48 @@
+const FAVORITE = 'FAVORITE';
+const UNFAVORITE = 'UNFAVORITE';
+const SET_WINES = 'SET_WINES';
+
 let initialState = {
-  wines: [
-    {
-      id: 1,
-      image: 'http://quack-straw.surge.sh/img/Nine_Stones_Shiraz.jpg',
-      name: 'Nine Stones',
-      country: 'Australia',
-      grape: 'Shiraz',
-      sugar: 'dry',
-      color: 'Red',
-      price: 800,
-      description: 'Mclaren Valley. Чуть перечный, достаточно сочный, вишневый, насыщенный.'
-    },
-    {
-      id: 2,
-      image: 'http://quack-straw.surge.sh/img/riesling_hagn.png',
-      name: 'Riesling Hagn',
-      country: 'Austria',
-      grape: 'Riesling',
-      sugar: 'dry',
-      color: 'White',
-      price: 713,
-      description: 'Изящный, полный, насыщенный рислинг.'
-    },
-    {
-      id: 3,
-      image: 'http://quack-straw.surge.sh/img/Jinda-Lee_shiraz.jpg',
-      name: 'Jinda-Lee',
-      country: 'Australia',
-      grape: 'Shiraz',
-      sugar: 'dry',
-      color: 'Red',
-      price: 600,
-      description: 'Простое, легкое.'
-    },
-  ]
+  wines: []
 }
 
-const wineReducer = (state = initialState) => {
-  return state;
+const wineReducer = (state = initialState, action) => {
+  switch(action.type) {
+    case FAVORITE:
+      return {
+        ...state,
+        wines: state.wines.map( w => {
+          if (w.id === action.userId) {
+            return {...w, favorited: true}
+          }
+          return w;
+        })
+      }
+
+    case UNFAVORITE:
+      return {
+        ...state,
+        wines: state.wines.map( w => {
+          if (w.id === action.userId) {
+            return {...w, favorited: false}
+          }
+          return w;
+        })
+      }
+    case SET_WINES:
+      return {
+          ...state,
+        wines: [...state.wines, ...action.wines]
+      }
+
+    default:
+      return state;
+  }
 }
+
+export const favoriteAC = (userId) => ({type: FAVORITE, userId})
+export const unfavoriteAC = (userId) => ({type: UNFAVORITE, userId})
+export const setWinesAC = (wines) => ({type: SET_WINES, wines})
 
 export default wineReducer;
 
