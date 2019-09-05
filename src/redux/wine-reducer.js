@@ -1,10 +1,15 @@
 const FAVORITE = 'FAVORITE';
 const UNFAVORITE = 'UNFAVORITE';
 const SET_WINES = 'SET_WINES';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_WINES_COUNT = 'SET_TOTAL_WINES_COUNT';
 
 let initialState = {
-  wines: []
-}
+  wines: [],
+  pageSize: 3,
+  totalWinesCount: 0,
+  currentPage: 1
+};
 
 const wineReducer = (state = initialState, action) => {
   switch(action.type) {
@@ -17,7 +22,7 @@ const wineReducer = (state = initialState, action) => {
           }
           return w;
         })
-      }
+      };
 
     case UNFAVORITE:
       return {
@@ -28,21 +33,32 @@ const wineReducer = (state = initialState, action) => {
           }
           return w;
         })
-      }
+      };
     case SET_WINES:
       return {
           ...state,
-        wines: [...state.wines, ...action.wines]
-      }
-
+        wines: action.wines
+      };
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.currentPage
+      };
+    case SET_TOTAL_WINES_COUNT:
+      return {
+        ...state,
+        totalWinesCount: action.count
+      };
     default:
       return state;
   }
-}
+};
 
-export const favoriteAC = (userId) => ({type: FAVORITE, userId})
-export const unfavoriteAC = (userId) => ({type: UNFAVORITE, userId})
-export const setWinesAC = (wines) => ({type: SET_WINES, wines})
+export const favoriteAC = (userId) => ({type: FAVORITE, userId});
+export const unfavoriteAC = (userId) => ({type: UNFAVORITE, userId});
+export const setWinesAC = (wines) => ({type: SET_WINES, wines});
+export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+export const setTotalWinesCountAC = (totalWinesCount) => ({type: SET_TOTAL_WINES_COUNT, count: totalWinesCount});
 
 export default wineReducer;
 

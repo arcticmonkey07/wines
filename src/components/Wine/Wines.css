@@ -1,0 +1,27 @@
+.wines__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wines__selectedPage {
+  font-weight: bold;
+}
+
+.wines__pagination {
+  margin: 20px;
+  font-size: 20px;
+}
+
+.wines__pagination span {
+  margin-right: 5px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.wines__pagination span:hover {
+  color: #adadad;
+}
+
+.wines__pagination span:active {
+  color: #5b5b5b;
+}

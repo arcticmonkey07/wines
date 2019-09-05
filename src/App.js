@@ -7,7 +7,7 @@ import WineContainer from "./components/Wine/WineContainer.jsx";
 import ChampagneContainer from "./components/Champagne/ChampagneContainer.jsx";
 import PostsContainer from "./components/Posts/PostsContainer.jsx";
 
-const App = (props) => {
+const App = () => {
   return (
       <div>
         <Header />
