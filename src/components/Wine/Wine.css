@@ -1,13 +1,18 @@
 .wine {
   display: flex;
   width: 310px;
-  margin-bottom: 20px;
-  padding: 7px;
+  margin: 10px 20px 10px 20px;
+  padding: 12px;
 }
 
 .wine:hover {
   border-radius: 20px;
   box-shadow: 0 0 15px 0 #000;
+}
+
+.wine__description-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .wine__img {
@@ -29,9 +34,16 @@
   width: 180px;
 }
 
+.wine__description {
+  height: 100px;
+  overflow: hidden;
+}
+
 .wine__favorite {
   width: 40px;
   height: 40px;
+  margin-left: auto;
+  margin-top: auto;
   border: none;
   border-radius: 50%;
   background-color: #c9c9c9;
@@ -54,6 +66,8 @@
 .wine__unfavorite {
   width: 40px;
   height: 40px;
+  margin-left: auto;
+  margin-top: auto;
   border: none;
   border-radius: 50%;
   background-color: #002855;
