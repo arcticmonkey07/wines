@@ -17,6 +17,6 @@ const App = () => {
         <Route path='/posts' render={ () => <PostsContainer />} />
       </div>
   );
-}
+};
 
 export default App;

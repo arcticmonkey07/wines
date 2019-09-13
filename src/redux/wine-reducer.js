@@ -3,12 +3,14 @@ const UNFAVORITE = 'UNFAVORITE';
 const SET_WINES = 'SET_WINES';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_WINES_COUNT = 'SET_TOTAL_WINES_COUNT';
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
   wines: [],
   pageSize: 3,
   totalWinesCount: 0,
-  currentPage: 1
+  currentPage: 1,
+  isFetching: true
 };
 
 const wineReducer = (state = initialState, action) => {
@@ -49,6 +51,11 @@ const wineReducer = (state = initialState, action) => {
         ...state,
         totalWinesCount: action.count
       };
+    case TOGGLE_IS_FETCHING:
+      return {
+        ...state,
+        isFetching: action.isFetching
+      };
     default:
       return state;
   }
@@ -59,6 +66,7 @@ export const unfavoriteAC = (userId) => ({type: UNFAVORITE, userId});
 export const setWinesAC = (wines) => ({type: SET_WINES, wines});
 export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
 export const setTotalWinesCountAC = (totalWinesCount) => ({type: SET_TOTAL_WINES_COUNT, count: totalWinesCount});
+export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching });
 
 export default wineReducer;
 
