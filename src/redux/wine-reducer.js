@@ -61,12 +61,12 @@ const wineReducer = (state = initialState, action) => {
   }
 };
 
-export const favoriteAC = (userId) => ({type: FAVORITE, userId});
-export const unfavoriteAC = (userId) => ({type: UNFAVORITE, userId});
-export const setWinesAC = (wines) => ({type: SET_WINES, wines});
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
-export const setTotalWinesCountAC = (totalWinesCount) => ({type: SET_TOTAL_WINES_COUNT, count: totalWinesCount});
-export const toggleIsFetchingAC = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching });
+export const favorite = (userId) => ({type: FAVORITE, userId});
+export const unfavorite = (userId) => ({type: UNFAVORITE, userId});
+export const setWines = (wines) => ({type: SET_WINES, wines});
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+export const setTotalWinesCount = (totalWinesCount) => ({type: SET_TOTAL_WINES_COUNT, count: totalWinesCount});
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching });
 
 export default wineReducer;
 

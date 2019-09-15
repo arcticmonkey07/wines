@@ -1,10 +1,9 @@
 import React from 'react';
 import {connect} from "react-redux";
 import Wines from "./Wines.jsx";
-import {favoriteAC, setWinesAC, unfavoriteAC, setCurrentPageAC, setTotalWinesCountAC} from "../../redux/wine-reducer.js";
+import {favorite, setWines, unfavorite, setCurrentPage, setTotalWinesCount, toggleIsFetching} from "../../redux/wine-reducer.js";
 import * as axios from "axios/index";
 import Preloader from "../_Common/Preloader/Preloader";
-import {toggleIsFetchingAC} from "../../redux/wine-reducer";
 
 class WinesContainer extends React.Component {
 
@@ -59,7 +58,7 @@ let mapStateToProps = (state) => {
   }
 };
 
-let mapDispatchToProps = (dispatch) => {
+/*let mapDispatchToProps = (dispatch) => {
   return {
     favorite: (userId) => {
       dispatch(favoriteAC(userId));
@@ -81,6 +80,6 @@ let mapDispatchToProps = (dispatch) => {
       dispatch(toggleIsFetchingAC(isFetching));
     }
   }
-};
+};*/
 
-export default connect(mapStateToProps, mapDispatchToProps)(WinesContainer);
+export default connect(mapStateToProps, {favorite, unfavorite, setWines, setCurrentPage, setTotalWinesCount, toggleIsFetching})(WinesContainer);
