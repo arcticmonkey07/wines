@@ -3,7 +3,7 @@ import './Wine.css';
 import {NavLink} from "react-router-dom";
 
 const Wine = (props) => {
-  let path = '/wines/' + props.id;
+  let path = '/winePage/' + props.id;
 
   return (
     <div className="wine" data-kind="" data-flag="">
