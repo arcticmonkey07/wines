@@ -33,6 +33,6 @@ const Wine = (props) => {
       </div>
     </div>
   )
-}
+};
 
 export default Wine;

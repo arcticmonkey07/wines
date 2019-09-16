@@ -3,16 +3,17 @@ import './Posts.css';
 import Post from "./Post/Post.jsx";
 
 const Posts = (props) => {
-  let postsElements = props.postsPage.posts.map( p => <Post message={p.message} likesCount={p.likesCount} key={p.id} /> )
+  let postsElements = props.postsPage.posts.map( p => <Post message={p.message} likesCount={p.likesCount} key={p.id} /> );
 
   let addPost = () => {
     props.addPost();
-  }
+    console.log(props);
+  };
 
   let onPostChange = (e) => {
     let text = e.target.value;
     props.updateNewPostText(text);
-  }
+  };
 
   return (
       <section>
@@ -21,6 +22,6 @@ const Posts = (props) => {
         { postsElements }
       </section>
   )
-}
+};
 
 export default Posts;

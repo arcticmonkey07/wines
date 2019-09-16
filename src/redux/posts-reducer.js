@@ -7,7 +7,7 @@ let initialState = {
     {id: 2, message: 'Sparkly, tart, fruty!', likesCount: 4}
   ],
   newPostText: 'Напишите отзыв'
-}
+};
 
 const postsReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -30,10 +30,10 @@ const postsReducer = (state = initialState, action) => {
       default:
         return state;
     }
-}
+};
 
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const addPostActionCreator = () => ({type: ADD_POST});
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
 
 export default postsReducer;
 
