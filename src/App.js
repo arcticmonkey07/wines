@@ -14,7 +14,7 @@ const App = () => {
         <HeaderContainer />
         <Menu />
         <Route path='/wines' render={ () => <WineContainer />} />
-        <Route path='/winePage' render={ () => <WinePageContainer />} />
+        <Route path='/winePage/:wineId' render={ () => <WinePageContainer />} />
         <Route path='/champagne' render={ () => <ChampagneContainer />} />
         <Route path='/posts' render={ () => <PostsContainer />} />
       </div>

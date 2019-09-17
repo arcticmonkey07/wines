@@ -4,11 +4,13 @@ import {connect} from "react-redux";
 import * as axios from "axios/index";
 import {setWinePage} from "../../redux/winePage-reducer";
 import {favorite, unfavorite} from "../../redux/wine-reducer";
+import {withRouter} from "react-router-dom";
 
 class WinePageContainer extends React.Component {
 
   componentDidMount() {
-    axios.get(`http://localhost:3000/wines/6`)
+    let wineId = this.props.match.params.wineId;
+    axios.get(`http://localhost:3000/wines/${wineId}`)
       .then(response => {
         this.props.setWinePage(response.data);
       });
@@ -28,4 +30,6 @@ let mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps, {setWinePage, favorite, unfavorite,})(WinePageContainer);
+let WithUrlDataContainerComponent = withRouter(WinePageContainer);
+
+export default connect(mapStateToProps, {setWinePage, favorite, unfavorite,})(WithUrlDataContainerComponent);
