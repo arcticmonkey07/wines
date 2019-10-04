@@ -19,7 +19,7 @@ const Wine = (props) => {
         <i className="wine__sugar">{ props.sugar }</i>
         <i className="wine__color">{ props.color }</i>
         <b className="wine__price">Цена: { props.price }</b>
-        <p className="wine__description">{ props.description }</p>
+        <p className="wine__description">{ props.description01 }</p>
         { props.favorited
             ? <button onClick={ () => { props.unfavorite(props.id)} }
                       className='wine__unfavorite'>

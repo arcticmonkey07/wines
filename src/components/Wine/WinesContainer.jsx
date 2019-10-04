@@ -9,24 +9,24 @@ class WinesContainer extends React.Component {
 
   componentDidMount() {
     this.props.toggleIsFetching(true);
-    axios.get(`http://localhost:3000/wines`)
+    axios.get(`https://arcticrest.herokuapp.com/wines`)
       .then(response => {
-        this.props.setTotalWinesCount(response.data);
+        this.props.setTotalWinesCount(response.data.total);
       });
-    axios.get(`http://localhost:3000/wines?_limit=${this.props.pageSize}&_page=${this.props.currentPage}`)
+    axios.get(`https://arcticrest.herokuapp.com/wines?perPage=${this.props.pageSize}&page=${this.props.currentPage}`)
       .then(response => {
         this.props.toggleIsFetching(false);
-        this.props.setWines(response.data);
+        this.props.setWines(response.data.docs);
       });
   }
 
   onPageChanged = (pageNumber) => {
     this.props.toggleIsFetching(true);
     this.props.setCurrentPage(pageNumber);
-    axios.get(`http://localhost:3000/wines?_limit=${this.props.pageSize}&_page=${pageNumber}`)
+    axios.get(`https://arcticrest.herokuapp.com/wines?perPage=${this.props.pageSize}&page=${pageNumber}`)
       .then(response => {
         this.props.toggleIsFetching(false);
-        this.props.setWines(response.data)
+        this.props.setWines(response.data.docs)
       });
   };
 

@@ -12,6 +12,6 @@ const Post = (props) => {
         <span className="post__like-count">{ props.likesCount }</span>
       </div>
   )
-}
+};
 
 export default Post;

@@ -1,81 +1,88 @@
-.wine {
-  display: flex;
-  width: 310px;
-  margin: 10px 20px 10px 20px;
-  padding: 12px;
-}
-
-.wine:hover {
-  border-radius: 20px;
-  box-shadow: 0 0 15px 0 #000;
-}
-
-.wine__description-wrapper {
+.wine-page {
   display: flex;
   flex-direction: column;
+  padding: 0 30px;
 }
 
-.wine__img {
-  margin: 0 10px 10px 0;
-  width: 120px;
-  height: 400px;
+.wine-page__header {
+  margin: 5px 0;
+  font-size: 40px;
+  color: #1d375a;
 }
 
-.wine__header {
-  margin-bottom: 10px;
-  width: 180px;
+.wine-page__container {
+  display: flex;
+  margin-top: 20px;
 }
 
-.wine__country, .wine__grape, .wine__color, .wine__sugar, .wine__price, .wine__sweetness {
+.wine-page__img {
+  width: 150px;
+  height: 600px;
+}
+
+.wine-page__parameters-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 60px;
+}
+
+.wine-page__parameter {
+  width: 155px;
+  height: 30px;
+  color: #b3b3b3;
+}
+
+.wine-page__price-container {
+  width: 440px;
+  margin-left: auto;
+  padding: 30px 20px;
+  background: #f2f2f2;
+  border-left: 1px solid #f2f2f2;
+}
+
+.wine-page__price-text {
   display: block;
+  color: #a6a6a6;
+  font-style: italic;
+  font-size: 12px;
 }
 
-.wine__description, .wine__grape, .wine__country{
-  width: 180px;
+.wine-page__price {
+  display: inline-block;
+  font-size: 36px;
+  color: #002855;
 }
 
-.wine__description {
-  height: 100px;
-  overflow: hidden;
+.wine-page__price-rub {
+  display: inline-block;
+  font-size: 18px;
+  color: #002855;
 }
 
-.wine__favorite {
-  width: 40px;
-  height: 40px;
-  margin-left: auto;
-  margin-top: auto;
+.wine-page__button--cart {
+  display: block;
+  padding: 15px 45px 14px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #464445;
+  background: #ffdc2e;
   border: none;
-  border-radius: 50%;
-  background-color: #c9c9c9;
-  outline: none;
+  border-bottom: 2px solid #e9c71f;
+  border-radius: 3px;
+  transition: .3s;
   cursor: pointer;
 }
 
-.wine__favorite:hover {
-  background-color: #002855;
+.wine-page__button--cart:hover {
+  background-color: #ffe92e;
+  border-bottom-color: #e9c71f;
 }
 
-.wine__favorite-svg {
-  margin-top: 2px;
+.wine-page__button--cart:active {
+  box-shadow: inset 2px 3px 7px rgba(0,0,0,.15);
+  background-color: #df6860;
+  color: #fff;
+  border-bottom-color: #df6860;
 }
 
-.wine__favorite:hover .wine__favorite-svg {
-  fill: #fff;
-}
-
-.wine__unfavorite {
-  width: 40px;
-  height: 40px;
-  margin-left: auto;
-  margin-top: auto;
-  border: none;
-  border-radius: 50%;
-  background-color: #002855;
-  outline: none;
-  cursor: pointer;
-}
-
-.wine__unfavorite-svg {
-  margin-top: 2px;
-  fill: #fff;
-}

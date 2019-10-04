@@ -10,7 +10,7 @@ class WinePageContainer extends React.Component {
 
   componentDidMount() {
     let wineId = this.props.match.params.wineId;
-    axios.get(`http://localhost:3000/wines/${wineId}`)
+    axios.get(`http://localhost:3000/wines?wine=${wineId}`)
       .then(response => {
         this.props.setWinePage(response.data);
       });

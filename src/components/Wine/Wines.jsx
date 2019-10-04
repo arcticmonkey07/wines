@@ -3,8 +3,7 @@ import './Wines.css';
 import Wine from "./Wine.jsx";
 
 const Wines = (props) => {
-
-  let pagesCount = Math.ceil(props.totalWinesCount.length / props.pageSize);
+  let pagesCount = Math.ceil(props.totalWinesCount / props.pageSize);
 
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
