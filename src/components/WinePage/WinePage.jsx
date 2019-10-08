@@ -14,30 +14,32 @@ const WinePage = (props) => {
         <img className="wine-page__img" src={props.winePage.imageLarge} width="120" height="400" alt="wine" />
         <div className='wine-page__parameters-wrapper'>
           <table>
-            <tr>
-              <td className='wine-page__parameter'>Вино:</td>
-              <td>{props.winePage.color}, {props.winePage.sugar}</td>
-            </tr>
-            <tr>
-              <td className='wine-page__parameter'>Регион:</td>
-              <td>{props.winePage.country}, {props.winePage.region}</td>
-            </tr>
-            <tr>
-              <td className='wine-page__parameter'>Производитель:</td>
-              <td>{props.winePage.brand}</td>
-            </tr>
-            <tr>
-              <td className='wine-page__parameter'>Крепость</td>
-              <td>{props.winePage.alcohol}</td>
-            </tr>
-            <tr>
-              <td className='wine-page__parameter'>Объем:</td>
-              <td>{props.winePage.size}</td>
-            </tr>
-            <tr>
-              <td className='wine-page__parameter'>Виноград:</td>
-              <td>{props.winePage.grape}</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td className='wine-page__parameter'>Вино:</td>
+                <td>{props.winePage.color}, {props.winePage.sugar}</td>
+              </tr>
+              <tr>
+                <td className='wine-page__parameter'>Регион:</td>
+                <td>{props.winePage.country}, {props.winePage.region}</td>
+              </tr>
+              <tr>
+                <td className='wine-page__parameter'>Производитель:</td>
+                <td>{props.winePage.brand}</td>
+              </tr>
+              <tr>
+                <td className='wine-page__parameter'>Крепость</td>
+                <td>{props.winePage.alcohol}</td>
+              </tr>
+              <tr>
+                <td className='wine-page__parameter'>Объем:</td>
+                <td>{props.winePage.size}</td>
+              </tr>
+              <tr>
+                <td className='wine-page__parameter'>Виноград:</td>
+                <td>{props.winePage.grape}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div className='wine-page__price-container'>

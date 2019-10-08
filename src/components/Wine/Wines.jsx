@@ -2,8 +2,8 @@ import React from 'react';
 import './Wines.css';
 import Wine from "./Wine.jsx";
 
-const Wines = (props) => {
-  let pagesCount = Math.ceil(props.totalWinesCount / props.pageSize);
+const Wines = ({ totalWinesCount, pageSize, currentPage, onPageChanged, wines, favorite, unfavorite,  }) => {
+  let pagesCount = Math.ceil(totalWinesCount / pageSize);
 
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
@@ -14,14 +14,15 @@ const Wines = (props) => {
     <div className='wines__pagination'>
       {pages.map(p => {
         return <span
-          className={props.currentPage === p && 'wines__selectedPage'}
-          onClick={() => { props.onPageChanged(p); }}
+          key={p}
+          className={currentPage === p ? 'wines__selectedPage' : '' }
+          onClick={() => { onPageChanged(p); }}
         >{p}</span>
       })}
     </div>
     <div className='wines__container'>
       {
-        props.wines.map(w => <Wine favorite={props.favorite} unfavorite={props.unfavorite} id={w.id} favorited={w.favorited} image={w.image} name={w.name} country={w.country} grape={w.grape} sugar={w.sugar} color={w.color} price={w.price} description={w.description} key={w.id}/>)
+        wines.map(w => <Wine favorite={favorite} unfavorite={unfavorite} id={w.id} favorited={w.favorited} image={w.image} name={w.name} country={w.country} grape={w.grape} sugar={w.sugar} color={w.color} price={w.price} description={w.description} key={w.id}/>)
       }
     </div>
   </div>

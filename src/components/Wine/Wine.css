@@ -3,10 +3,11 @@
   width: 310px;
   margin: 10px 20px 10px 20px;
   padding: 12px;
+  border-radius: 20px;
+  transition: .3s;
 }
 
 .wine:hover {
-  border-radius: 20px;
   box-shadow: 0 0 15px 0 #000;
 }
 
@@ -24,6 +25,13 @@
 .wine__header {
   margin-bottom: 10px;
   width: 180px;
+  color: #000;
+  text-decoration: none;
+  transition: .2s;
+}
+
+.wine__header:hover {
+  color: #a8a838;
 }
 
 .wine__country, .wine__grape, .wine__color, .wine__sugar, .wine__price, .wine__sweetness {

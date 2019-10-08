@@ -24,6 +24,11 @@
   border: 1px solid #d9d9d9;
   border-radius: 3px;
   letter-spacing: .025em;
+  transition: .3s;
+}
+
+.header-top__input:hover {
+  border: 1px solid #002855;
 }
 
 .header-top__submit {
@@ -41,12 +46,26 @@
   border-radius: 3px;
   letter-spacing: .025em;
   cursor: pointer;
+  transition: .3s;
+}
+
+.header-top__submit:hover {
+  color: #d2d23f;
+  background-color: #002855;
+  border: 2px solid #002855;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .header-top__login {
   margin-right: 20px;
   color: #464445;
   font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.header-top__login:hover {
+  text-decoration: underline;
 }
 
 .header-top__login-svg {
@@ -57,6 +76,7 @@
 
 .header-top__favorites {
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .header-top__favorites-svg {
@@ -69,6 +89,12 @@
   margin-right: 20px;
   color: #464445;
   font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.header-top__basket:hover {
+  text-decoration: underline;
 }
 
 .header-top__basket-svg {

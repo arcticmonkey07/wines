@@ -14,6 +14,4 @@ ReactDOM.render(
       </Provider>
   </HashRouter>, document.getElementById('root'));
 
-
-
 serviceWorker.unregister();

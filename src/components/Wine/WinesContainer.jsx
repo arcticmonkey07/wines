@@ -8,25 +8,26 @@ import Preloader from "../_Common/Preloader/Preloader";
 class WinesContainer extends React.Component {
 
   componentDidMount() {
-    this.props.toggleIsFetching(true);
-    axios.get(`https://arcticrest.herokuapp.com/wines`)
+    const { toggleIsFetching, pageSize, currentPage, setTotalWinesCount, setWines } = this.props;
+
+    toggleIsFetching(true);
+    axios.get(`https://arcticrest.herokuapp.com/wines?perPage=${pageSize}&page=${currentPage}`)
       .then(response => {
-        this.props.setTotalWinesCount(response.data.total);
-      });
-    axios.get(`https://arcticrest.herokuapp.com/wines?perPage=${this.props.pageSize}&page=${this.props.currentPage}`)
-      .then(response => {
-        this.props.toggleIsFetching(false);
-        this.props.setWines(response.data.docs);
+        setTotalWinesCount(response.data.total);
+        toggleIsFetching(false);
+        setWines(response.data.docs);
       });
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.toggleIsFetching(true);
-    this.props.setCurrentPage(pageNumber);
-    axios.get(`https://arcticrest.herokuapp.com/wines?perPage=${this.props.pageSize}&page=${pageNumber}`)
+    const { toggleIsFetching, setCurrentPage, pageSize, setWines } = this.props;
+
+    toggleIsFetching(true);
+    setCurrentPage(pageNumber);
+    axios.get(`https://arcticrest.herokuapp.com/wines?perPage=${pageSize}&page=${pageNumber}`)
       .then(response => {
-        this.props.toggleIsFetching(false);
-        this.props.setWines(response.data.docs)
+        toggleIsFetching(false);
+        setWines(response.data.docs)
       });
   };
 

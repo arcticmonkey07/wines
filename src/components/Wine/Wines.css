@@ -16,6 +16,7 @@
   margin-right: 5px;
   padding: 4px;
   cursor: pointer;
+  transition:  .3s;
 }
 
 .wines__pagination span:hover {

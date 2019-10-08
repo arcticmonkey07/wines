@@ -19,6 +19,7 @@
   font-weight: 600;
   color: #fff;
   text-decoration: none;
+  transition: .3s;
 }
 
 .menu__link.active {
